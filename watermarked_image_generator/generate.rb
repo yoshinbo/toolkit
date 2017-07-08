@@ -3,7 +3,7 @@ require 'rmagick'
 # NOTE: ウォーターマーク付きの画像を生成するツール
 # $ bundle exec ruby ./generate.rb
 class WatermarkedImageGenerator
-  INPUT_PATH = "./input/*.jpeg"
+  INPUT_PATH = "./input/*.jpg"
 
   EYECATCH_PATH = "./eyecatch/"
   EYECATCH_WIDTH = 750
@@ -41,8 +41,8 @@ class WatermarkedImageGenerator
 
   def generate
     Dir.glob(exec_path(INPUT_PATH)) { |path|
-      p "#{filename(image.filename)}"
       image = Magick::ImageList.new(path)
+      p "#{filename(image.filename)}"
       put_wartermark_with_resize(image, 'normal')
       put_wartermark_with_resize(image, 'eyecatch')
       image.destroy!
