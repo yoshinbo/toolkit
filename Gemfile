@@ -3,3 +3,5 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem 'rmagick'
+gem 'nokogiri'
+gem 'selenium-webdriver'
